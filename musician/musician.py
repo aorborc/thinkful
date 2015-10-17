@@ -1,8 +1,9 @@
 class Band(object):
-	members = []
+	def __init__(self):
+		self.members = []
 	def hire_musician(self,member):
 		self.members.append(member)
-		print self.members
+		
 	def fire_musician(self,member):
 		self.members.remove(member)
 	
@@ -46,4 +47,8 @@ class Drummer(Musician):
 Jingle = Band()
 ruben = Drummer()
 nigel = Guitarist()
+
 Jingle.hire_musician(ruben)
+Jingle.hire_musician(nigel)
+
+Jingle.play_solo(6)
