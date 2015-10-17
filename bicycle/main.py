@@ -1,11 +1,27 @@
-from bicycle import Bicycle, Bike_shop,Customers
+from bicycle import Bicycle, Bike_shop,Customers,Wheels,Frames,Bicycle_Manufacturers
 
-bicycle1 = Bicycle("Ranger",8,25)
-bicycle2 = Bicycle("Danger",9,1200)
-bicycle3 = Bicycle("Stranger",7,800)
-bicycle4 = Bicycle("Gamer",8,450)
-bicycle5 = Bicycle("Toner",2,605)
-bicycle6 = Bicycle("Fiver",4,300)
+# Creating Manufacturers
+man1 = Bicycle_Manufacturers("Ruben Bars",15)
+man2 = Bicycle_Manufacturers("Hercules",25)
+
+#Creating Wheels
+wheel1 = Wheels("Alloy",3,10,"type1")
+wheel2 = Wheels("Spoke",2,8,"type2")
+wheel3 = Wheels("Wire",5,100,"type3")
+
+#Creating Frames
+frame1 = Frames("aluminum",10,20)
+frame2 = Frames("carbon",5,200)
+frame3 = Frames("steel",6,500)
+
+# Producing Bicycles
+
+bicycle1 = man1.produce_bicycle(wheel1,frame1,"Ranger")
+bicycle2 = man2.produce_bicycle(wheel1,frame2,"Danger")
+bicycle3 = man1.produce_bicycle(wheel1,frame3,"Stranger")
+bicycle4 = man2.produce_bicycle(wheel2,frame3,"Gamer")
+bicycle5 = man1.produce_bicycle(wheel3,frame3,"Toner")
+bicycle6 = man2.produce_bicycle(wheel3,frame2,"Fiver")
 
 LavaCycles = Bike_shop("Lava Cycles",20)
 LavaCycles.buy_bicycle(bicycle1,100)

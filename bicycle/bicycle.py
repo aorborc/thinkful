@@ -1,9 +1,34 @@
-class Bicycle(object):
-	def __init__(self,name,weight,cost):
+class Wheels:
+	def __init__(self,name, weight, cost, type):
 		self.name = name
 		self.weight = weight
 		self.cost = cost
-	
+		self.type = type
+
+class Frames:
+	def __init__(self,name, weight, cost):
+		self.name = name
+		self.weight = weight
+		self.cost = cost
+		
+class Bicycle(object):
+	def __init__(self,name,weight,cost,man):
+		self.name = name
+		self.weight = weight
+		self.cost = cost
+		self.man = man
+class Bicycle_Manufacturers:
+	def __init__(self,name, margin):
+		self.name = name
+		self.margin = margin
+		self.inventory = {}
+	def produce_bicycle(self,Wheel,Frame,name):
+		weight = Wheel.weight + Frame.weight
+		cost = Wheel.cost + Frame.cost
+		sale_cost = cost + (cost * float(self.margin)/100)
+		return Bicycle(name, weight, sale_cost,self)
+		
+		#self.inventory[bicycle] = self.inventory[bicycle] + 1
 class Bike_shop(object):
 	def __init__(self,name,margin):
 		self.name = name
