@@ -15,8 +15,9 @@ ingredients = {
     "sweet": ["sugar cube", "spoonful of honey", "spash of cola"],
     "fruity": ["slice of orange", "dash of cassis", "cherry on top"]
 }
-
+customers=[]
 customers_and_preferences = {}
+
 def find_preferences():
     preferences = {}
     for type, question in questions.iteritems():
@@ -38,7 +39,7 @@ def make_drink(preferences):
 
 def main():
 	customer_count = int(raw_input("Enter the number of customers"))
-	for i in range(1,customer_count):
+	for i in range(customer_count):
 		print i
 		print "\n"
 		customer = raw_input("Enter your name : \n")
