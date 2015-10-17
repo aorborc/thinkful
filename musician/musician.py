@@ -7,8 +7,13 @@ class Band(object):
 		self.members.remove(member)
 	
 	def play_solo(self,length):
-		for i in self.members:
-			print self.members[i].isDrummer
+		for member in self.members:
+			if member.isDrummer:
+				member.solo(4)
+	
+		for member in self.members:
+			if not member.isDrummer:
+				member.solo(length)
 
 class Musician(object):
     def __init__(self, sounds,isDrummer):
