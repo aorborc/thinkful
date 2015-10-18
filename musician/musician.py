@@ -9,17 +9,16 @@ class Band(object):
 	
 	def play_solo(self,length):
 		for member in self.members:
-			if member.isDrummer:
+			if isinstance(member,Drummer):
 				member.solo(4)
 	
 		for member in self.members:
-			if not member.isDrummer:
+			if not isinstance(member,Drummer):
 				member.solo(length)
 
 class Musician(object):
-    def __init__(self, sounds,isDrummer):
+    def __init__(self, sounds):
         self.sounds = sounds
-        self.isDrummer = isDrummer
         
     def solo(self, length):
         for i in range(length):
@@ -29,19 +28,19 @@ class Musician(object):
 class Bassist(Musician):
 	def __init__(self):
 		# Call the __init__ method of the parent class
-		super(Bassist, self).__init__(["Twang", "Thrumb", "Bling"],False)
+		super(Bassist, self).__init__(["Twang", "Thrumb", "Bling"])
 
 class Guitarist(Musician):
 	def __init__(self):
 		# Call the __init__ method of the parent class
-		super(Guitarist, self).__init__(["Boink", "Bow", "Boom"],False)
+		super(Guitarist, self).__init__(["Boink", "Bow", "Boom"])
 	
 	def tune(self):
 		print "Be with you in a moment"
 		print "Twoning, sproing, splang"
 class Drummer(Musician):
 	def __init__(self):
-		super(Drummer, self).__init__(["Hi", "Hat"],True)
+		super(Drummer, self).__init__(["Hi", "Hat"])
 
 
 Jingle = Band()
